@@ -50,7 +50,7 @@ int main()
     int sum = SumOfPrimes(arr, n);
     printf("Sum of prime numbers: %d\n", sum);
 
-    free(arr); // Free the dynamically allocated memory
+    free(arr); // De-allocate memory
 
     return 0;
 }
