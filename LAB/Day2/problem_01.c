@@ -56,6 +56,29 @@ void linearSearch(int arr[], int n, int e)
     printf("Element not found.\n");
 }
 
+void binSearch(int arr[], int n, int e)
+{
+    int l = 0, h = n - 1, mid;
+    while (l <= h)
+    {
+        mid = (l + h) / 2;
+        if (arr[mid] == e)
+        {
+            printf("Element found at position: %d\n", mid + 1);
+            return;
+        }
+        else if (arr[mid] < e)
+        {
+            l = mid + 1;
+        }
+        else
+        {
+            h = mid - 1;
+        }
+    }
+    printf("Element not found.\n");
+}
+
 void traverse(int arr[], int n)
 {
     printf("Array Elements: ");
@@ -63,12 +86,11 @@ void traverse(int arr[], int n)
     {
         printf("%d ", arr[i]);
     }
-    printf("\n");
 }
 
 int main()
 {
-    int n, c, e, pos, arr[n + 100];;
+    int n, c, e, pos, arr[n + 100];
     printf("Enter the size of the array: ");
     scanf("%d", &n);
 
@@ -80,13 +102,7 @@ int main()
 
     while (1)
     {
-        printf("\n***MENU***\n");
-        printf("1. Insert\n");
-        printf("2. Delete\n");
-        printf("3. Linear Search\n");
-        printf("4. Traverse\n");
-        printf("5. Exit\n");
-        printf("Enter option: ");
+        printf("\n***MENU***\n1. Insert\n2. Delete\n3. Linear Search\n4. Binary Search\n5. Traverse\n6. Exit\nEnter option: ");
         scanf("%d", &c);
 
         switch (c)
@@ -111,9 +127,14 @@ int main()
             linearSearch(arr, n, e);
             break;
         case 4:
-            traverse(arr, n);
+            printf("Enter element to search: ");
+            scanf("%d", &e);
+            binSearch(arr, n, e);
             break;
         case 5:
+            traverse(arr, n);
+            break;
+        case 6:
             exit(0);
         default:
             printf("Invalid option! Please try again.\n");
