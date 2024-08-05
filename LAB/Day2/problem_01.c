@@ -137,7 +137,7 @@ int main()
         case 6:
             exit(0);
         default:
-            printf("Invalid option! Please try again.\n");
+            printf("Invalid option!\n");
         }
     }
 
