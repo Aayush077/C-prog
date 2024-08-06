@@ -39,8 +39,6 @@ int main()
 
     // Update the number of non-zero elements in the 3-tuple representation
     size[0][2] = k - 1;
-
-    // Print the 3-tuple representation
     printf("Sparse matrix in 3-tuple format:\n");
     for (i = 0; i < k; i++)
     {
