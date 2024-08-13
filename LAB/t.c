@@ -1,4 +1,3 @@
-//3.1 WAP to perform transpose of a given sparse matrix in 3-tuple format.
 #include <stdio.h>
 
 void transpose(int transmat[][3], int spamat[][3], int n)
@@ -50,7 +49,7 @@ int main()
     int spamat[n][3];
     int transmat[n][3];
 
-    printf("Enter the sparse matrix in 3-tuple format in row, col, Element format:\n");
+    printf("Enter the sparse matrix in 3-tuple format (row col value):\n");
     for (int i = 0; i < n; i++)
     {
         printf("Element %d: ", i + 1);

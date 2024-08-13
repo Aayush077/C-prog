@@ -61,7 +61,7 @@
         printf("Resultant Sparse Matrix:\nR C Element\n");
         for (int i = 0; i < k; i++)
         {
-            printf("%d %d %d\n", result[i][0], result[i][1], result[i][2]);
+            printf("(%d %d %d)\n", result[i][0], result[i][1], result[i][2]);
         }
     }
 
