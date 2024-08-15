@@ -1,4 +1,4 @@
-/*Write a program to perform the following operations on a given square matrix using functions:
+/*2.2.Write a program to perform the following operations on a given square matrix using functions:
 i.   Find the no.of nonzero elements
 ii.  Display upper triangular matrix
 iii. Display the elements of just above and below the main diagonal*/

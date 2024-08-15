@@ -43,7 +43,7 @@ int main()
             printf("Product = %d + %di\n", result.real, result.imag);
             break;
         case 3:
-            printf("Exiting...\n");
+            printf("Exiting\n");
             break;
         default:
             printf("Invalid choice. Please try again.\n");
