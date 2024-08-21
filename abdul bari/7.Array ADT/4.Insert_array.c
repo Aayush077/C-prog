@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
 
 void display_array(int arr[], int size)
 {
@@ -19,7 +19,7 @@ void insert_array(int arr[], int *size, int pos, int e)
     else
         for (int i = *size; i >= pos; i--)
         {
-            arr[i] = arr[i - 1];
+            arr[i + 1] = arr[i];
         }
     arr[pos - 1] = e;
     (*size)++;

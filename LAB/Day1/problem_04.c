@@ -40,7 +40,7 @@ int main()
             break;
         case 2:
             multiply(&c1, &c2, &result);
-            printf("Product = %d + %di\n", result.real, result.imag);
+            printf("Product = %d * %di\n", result.real, result.imag);
             break;
         case 3:
             printf("Exiting\n");
