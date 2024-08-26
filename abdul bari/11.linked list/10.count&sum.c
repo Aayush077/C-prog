@@ -10,7 +10,7 @@ void create_linkedlist(int arr[], int n)
     int i;
     struct Node *t, *last;
     first = (struct Node *)malloc(sizeof(struct Node));
-    first->data = arr[i];
+    first->data = arr[0];
     first->next = NULL;
     last = first;
 
