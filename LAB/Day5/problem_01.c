@@ -1,3 +1,10 @@
+/*
+5.1 Write a program to create a double linked list and perform the following menu-based operations on it:
+i. insert an element at specific position 
+ii. delete an element from specific position
+iii. Traverse the list
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -49,14 +56,70 @@ int count_doublylinkedlist(struct Node *p)
     printf("\n");
 }
 
-void insert_doublylinkedlist(int arr[],int *n,int e,int pos)
+void insert_doublylinkedlist(struct Node *p,int e,int pos)
 {
-    if( index < 0 || index > count(p))
+    struct Node *t;
+    if( pos < 0 || pos > count_doublylinkedlist(p))
+    {
+        printf("Invalid position\n");
+    }
+    t=(struct Node*)malloc(sizeof(struct Node));
+    t->data=e;
+    if(pos==1||pos==0)
+    {
+        t->next=first;
+        t->prev=NULL;
+        first->prev=t;
+        first=t;
+    }
+    else
+    {
+        for(int i=1;i<pos-1;i++)
+        {
+            p=p->next;
+        }
+        t->next=p->next;
+        t->prev=p;
+        if(p->next!=NULL)
+        {
+            p->next->prev=t;
+        }
+        p->next = t;
+    }
 }
 
-void delete_doublylinkedlist(int arrr[],int *n,int pos)
+void delete_doublylinkedlist(struct Node *p,int pos)
 {
-
+    struct Node *q=NULL;
+    int x=-1;
+    if(pos<0 || pos>count_doublylinkedlist(p))
+    {
+        printf("Invalid position\n");
+    }
+    if(pos==1)
+    {
+        first=first->next;
+        if(first!=NULL)
+        {
+            first->prev=NULL;
+        }
+        x=p->data;
+        free(p);
+    }
+    else
+    {
+        for(int i=1;i<pos-1;i++)
+        {
+            p=p->next;
+        }
+        p->prev->next=p->next;
+        if(p->next!=NULL)
+        {
+            p->next->prev=p->prev;
+        }
+        x=p->data;
+        free(p);
+    }
 }
 
 
@@ -88,14 +151,14 @@ int main()
                 scanf("%d", &e);
                 printf("Enter the position to insert: ");
                 scanf("%d",&pos);
-                insert_doublylinkedlist(arr,&n,e,pos);
+                insert_doublylinkedlist(first,e,pos);
 
                 break;
 
             case 2:
                 printf("Enter the position to delete: ");
                 scanf("%d", &pos);
-                delete_doublylinkedlist(arr,&n,pos);
+                delete_doublylinkedlist(first,pos);
 
                 break;
             
