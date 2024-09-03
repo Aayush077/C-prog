@@ -43,14 +43,16 @@ void display(struct Node *p)
 
 void search(struct Node *p,int e)
 {
+    int count=0;
     while(p!=NULL)
     {
         if(p->data==e)
         {
-            printf("Element %d is found\n",e);
+            printf("Element %d is found at node %d.",e,count+1);
             return;
         }
         p=p->next;
+        count++;
     }
     printf("Element %d is not found\n",e);
 }

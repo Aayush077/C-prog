@@ -119,7 +119,7 @@ int main()
 
   
 
-    while (1)
+    while(1)
     {
           printf("\nMENU\n1.INSERT AT ANY POSITION\n2.INSERT AT FIRST\n3.INSERT AT LAST\n4.Display\n5.Exit\nEnter Choice: ");
              scanf("%d",&c);
@@ -150,10 +150,12 @@ int main()
                 break;
 
             case 5:
-            exit(0);
+                exit(0);
+                break;
 
             default:
                 printf("Invalid!!");
+                break;
         }
     }
     
