@@ -4,7 +4,7 @@
 // Structure for a node in a linked list
 struct node {
     int num;                // Data of the node
-    struct node *nextptr;   // Address of the next node
+    struct node *nextptr;   
 } *stnode;                  // Pointer to the starting node
 
 void createNodeList(int n); // Function to create the linked list
