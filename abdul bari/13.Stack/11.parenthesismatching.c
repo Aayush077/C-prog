@@ -6,7 +6,7 @@ struct Node
     struct Node *next;
 } *top = NULL;
 
-void push(int x)
+void push(char x)
 {
     struct Node *t;
     t = (struct Node *)malloc(sizeof(struct Node));
@@ -22,10 +22,10 @@ void push(int x)
     }
 }
 
-void pop()
+char pop()
 {
     struct Node *t;
-    int x = -1;
+    char x = -1;
     if (top == NULL)
     {
         printf("Stack is empty\n");
