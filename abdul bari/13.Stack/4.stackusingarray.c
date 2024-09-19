@@ -5,8 +5,8 @@ struct Stack
 {
     int size;
     int top;
-    int *S;
-};
+    int *S; 
+} st;
 
 void create(struct Stack *st)
 {
@@ -56,7 +56,6 @@ int pop(struct Stack *st)
 
 int main()
 {
-    struct Stack st;
     int n, value, choice;
 
     create(&st);
