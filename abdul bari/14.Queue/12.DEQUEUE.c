@@ -57,7 +57,6 @@ void enqueueRear(struct DEQueue *deq, int x)
         deq->Q[deq->rear] = x;
     }
 }
-
 int dequeueFront(struct DEQueue *deq)
 {
     int x = -1;
