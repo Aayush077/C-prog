@@ -47,7 +47,7 @@ struct Node * dequeue(struct Queue *q)
     return x;
 }
 
-int isEmpty(struct Queue q)
+int isEmpty(struct Queue q)   
 {
     return q.front==q.rear;
 }
@@ -58,7 +58,7 @@ int main()
 {
     struct Queue q;
     create(&q,100);
-    struct Node *p,*t;
+    struct Node *p,*t;                              // p is for parent and t is for temporary
     int x;
     root=(struct Node *)malloc(sizeof(struct Node));
     printf("Enter root value: ");
