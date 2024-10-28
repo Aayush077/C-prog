@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct Node 
+struct Node
 {
     struct Node *lchild;
     int data;
@@ -10,10 +10,10 @@ struct Node
 
 void insert(int key)
 {
-    struct Node *t =root; 
-    struct Node *r, *p; // r is for tailing pointer, p is for parent pointer
+    struct Node *t =root;
+    struct Node *r, *p;
 
-    if(root == NULL)
+    if(root==NULL)
     {
         p = (struct Node *)malloc(sizeof(struct Node));
         p->data = key;
@@ -21,35 +21,24 @@ void insert(int key)
         root = p;
         return;
     }
-    while (t!=NULL) 
+    while (t!=NULL)
     {
-        r=t; 
-        if(key <t->data)
-        {
+        r=t;
+        if(key < t->data)
             t = t->lchild;
-        }
         else if(key > t->data)
-        {
             t = t->rchild;
-        }
         else
-        {
             return;
-        }
     }
-    p=(struct Node *)malloc(sizeof(struct Node)); 
+    p = (struct Node *)malloc(sizeof(struct Node));
     p->data = key;
     p->lchild = p->rchild = NULL;
-
+    
     if(key < r->data)
-    {
         r->lchild = p;
-    }
     else
-    {
         r->rchild = p;
-    }
-
 }
 
 void inorder(struct Node *p)
@@ -62,26 +51,43 @@ void inorder(struct Node *p)
     }
 }
 
+struct Node *Search(int key)
+{
+    struct Node *t = root;
+
+    while(t!=NULL)
+    {
+        if(key == t->data)
+            return t;
+        else if(key < t->data)
+            t = t->lchild;
+        else
+            t = t->rchild;
+    }
+    return NULL;
+}
+
 int main()
 {
     int n;
-    printf("Enter number of elements: ");
+    printf("Enter the number of elements: ");
     scanf("%d", &n);
     int a[n];
-    printf("Enter elements: ");
+    printf("Enter the elements: ");
     for(int i=0; i<n; i++)
     {
         scanf("%d", &a[i]);
-    }
-    root = (struct Node *)malloc(sizeof(struct Node));
-    root->data = a[0];
-    root->lchild = root->rchild = NULL;
-    for(int i=1; i<n; i++)
-    {
         insert(a[i]);
     }
-    printf("Inorder: ");
     inorder(root);
     printf("\n");
+    int key;
+    printf("Enter the element to be searched: ");
+    scanf("%d", &key);
+    struct Node *temp = Search(key);
+    if(temp!=NULL)
+        printf("Element %d is found\n", temp->data);
+    else
+        printf("Element %d is not found\n", key);
     return 0;
 }
