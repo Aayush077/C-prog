@@ -52,7 +52,7 @@ int main()
     {
         for(int j = 0; j<3; j++)
         {
-            printf("%d %d %d ",sparse[i][0], sparse[j][0], sparse[i][j]);
+            printf("%d ", sparse[i][j]);
         }
         printf("\n");
     }
