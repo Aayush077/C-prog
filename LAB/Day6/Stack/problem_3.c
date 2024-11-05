@@ -1,13 +1,12 @@
-//WAP to covert infix expression to postfix expression using stack.
-
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
 struct Node
 {
     char data;
     struct Node *next;
-} *top = NULL;
+}*top=NULL;
 
 void push(char x)
 {
@@ -43,6 +42,16 @@ char pop()
     return x;
 }
 
+void display()
+{
+    struct Node *p = top;
+    while (p != NULL)
+    {
+        printf("%c ", p->data);
+        p = p->next;
+    }
+    printf("\n");
+}
 
 int pre(char x)
 {
@@ -57,13 +66,50 @@ int pre(char x)
     return 0;
 }
 
-int isOperand(char x)
+int isoperand(char x)
 {
-    if (x == '+' || x == '-' || x == '*' || x == '/')
-    {
-        return 0;
-    }
-    return 1;
+    return !(x == '+' || x == '-' || x == '*' || x == '/');
 }
 
+char *Topostfix(char *infix)
+{
+    int i = 0, j = 0;
+    char *postfix;
+    int len = strlen(infix);
+    postfix = (char *)malloc((len + 2) * sizeof(char));
 
+    while (infix[i] != '\0')
+    {
+        if (isoperand(infix[i]))
+        {
+            postfix[j++] = infix[i++];
+        }
+        else
+        {
+            while (top != NULL && pre(infix[i]) <= pre(top->data))
+            {
+                postfix[j++] = pop();
+            }
+            push(infix[i++]);
+        }
+    }
+    while (top != NULL)
+    {
+        postfix[j++] = pop();
+    }
+    postfix[j] = '\0';
+    return postfix;
+}
+
+int main()
+{
+    char exp[50];
+    printf("Enter an expression: ");
+    scanf("%s", exp);
+
+    char *postfix = Topostfix(exp);
+    printf("Postfix expression: %s\n", postfix);
+    free(postfix);  // Free the dynamically allocated memory
+
+    return 0;
+}
