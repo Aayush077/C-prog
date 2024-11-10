@@ -31,6 +31,15 @@ void enqueue(struct Queue *q, int x)
     }
 }
 
+void rev(struct queue *q, int k)
+{
+    int i = q->front +1;
+    for(int j= k; j>=i;j--)
+    {
+        printf("%d ", q->Q[j])
+    }
+}
+
 int dequeue (struct Queue *q)
 {
     int x=-1;
