@@ -55,7 +55,7 @@ void display(struct Node *p)
 
 void concat(struct Node *p, struct Node *q)
 {
-    third=p;
+    third=p;               
 
     while(p->next != NULL)
     {
